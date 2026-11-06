@@ -1,3 +1,7 @@
+import autoScreen from '../assets/screens/auto.png';
+import homeScreen from '../assets/screens/home.png';
+import syncScreen from '../assets/screens/sync.png';
+
 export const links = {
   github: 'https://github.com/FIRST1939/Scout-a-lot',
   docs: 'https://docs.scoutalot.com',
@@ -5,7 +9,23 @@ export const links = {
   blueAlliance: 'https://www.thebluealliance.com/',
 };
 
-export const screenshots = ['Match scouting', 'Data sync', 'Team stats'];
+export const screenshots = [
+  {
+    name: 'Match setup',
+    image: homeScreen,
+    alt: 'Scout-a-lot home screen with the current event, match number, and assigned team.',
+  },
+  {
+    name: 'Match scouting',
+    image: autoScreen,
+    alt: 'Autonomous scouting form with starting position, preload, and pickup options.',
+  },
+  {
+    name: 'Data sync',
+    image: syncScreen,
+    alt: 'Bluetooth sync screen with paired devices and buttons to send pit and match data.',
+  },
+];
 
 export const features = [
   {

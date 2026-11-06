@@ -1,15 +1,22 @@
 ---
+import { Image } from 'astro:assets';
 import { screenshots } from '../data/site';
 ---
 
 <section class="container" aria-label="Product preview">
   <div class="stage">
     {
-      screenshots.map((name) => (
-        <div class="phone" role="img" aria-label={`Placeholder for a screenshot of ${name}`}>
-          <span class="name">{name}</span>
-          <span class="note">Screenshot placeholder</span>
-        </div>
+      screenshots.map((screen) => (
+        <figure>
+          <Image
+            src={screen.image}
+            alt={screen.alt}
+            widths={[256, 512]}
+            sizes="256px"
+            format="webp"
+          />
+          <figcaption>{screen.name}</figcaption>
+        </figure>
       ))
     }
   </div>
@@ -27,27 +34,24 @@ import { screenshots } from '../data/site';
     background: var(--color-surface);
   }
 
-  .phone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+  figure {
     width: 256px;
-    height: 540px;
-    padding: 24px;
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
     border: 1px solid var(--color-border-strong);
     border-radius: 32px;
-    background: var(--color-bg);
-    text-align: center;
   }
 
-  .name {
-    font-weight: 500;
-  }
-
-  .note {
+  figcaption {
+    margin-top: 12px;
     font-size: 14px;
-    color: var(--color-ink-3);
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-ink-2);
   }
 </style>
