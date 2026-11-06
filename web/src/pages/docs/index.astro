@@ -1,0 +1,95 @@
+---
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import Base from '../../layouts/Base.astro';
+
+const sections = [
+  { id: 'getting-started', title: 'Getting started' },
+  { id: 'forms', title: 'Forms' },
+  { id: 'scouting', title: 'Scouting' },
+  { id: 'sync', title: 'Sync' },
+  { id: 'reports', title: 'Reports' },
+];
+---
+
+<Base title="Docs: Scout-a-lot" description="Documentation for the Scout-a-lot FRC scouting app.">
+  <Header />
+  <div class="container layout">
+    <nav aria-label="Docs">
+      <ul>
+        {
+          sections.map((section) => (
+            <li>
+              <a href={`#${section.id}`}>{section.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <main id="main">
+      <h1>Documentation</h1>
+      {
+        sections.map((section) => (
+          <section id={section.id}>
+            <h2>{section.title}</h2>
+            <p>Coming soon.</p>
+          </section>
+        ))
+      }
+    </main>
+  </div>
+  <Footer />
+</Base>
+
+<style>
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 64px;
+    padding-block: clamp(40px, 6vw, 72px);
+  }
+
+  nav {
+    flex: 1 1 200px;
+    font-size: 14px;
+    color: var(--color-ink-2);
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  li a {
+    display: block;
+    padding-block: 6px;
+  }
+
+  main {
+    flex: 999 1 560px;
+    min-width: 0;
+    max-width: 720px;
+  }
+
+  h1 {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  section {
+    margin-top: 40px;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  section p {
+    margin-top: 8px;
+    color: var(--color-ink-2);
+  }
+</style>
