@@ -1,0 +1,51 @@
+---
+import { availability } from '../data/site';
+---
+
+<section id="availability" class="container availability" aria-labelledby="availability-title">
+  <h2 id="availability-title" class="section-title">Availability</h2>
+  <div class="grid">
+    {
+      availability.map((item) => (
+        <div class="card">
+          <p class="name">{item.name}</p>
+          <p class:list={['status', { available: item.available }]}>{item.status}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .availability {
+    padding-block: var(--section-space);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .card {
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .name {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .status {
+    margin-top: 4px;
+    color: var(--color-ink-2);
+  }
+
+  .available {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+</style>

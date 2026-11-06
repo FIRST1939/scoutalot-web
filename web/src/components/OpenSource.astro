@@ -1,0 +1,84 @@
+---
+import { links } from '../data/site';
+
+const { origin, pathname } = new URL(`${links.github}.git`);
+const urlSegments = [`${origin}/`, ...pathname.slice(1).split(/(?<=\/)/)];
+---
+
+<section class="container open" aria-labelledby="open-title">
+  <div class="panel">
+    <div class="copy">
+      <h2 id="open-title" class="section-title">Open by default.</h2>
+      <p>
+        Scout-a-lot is built with Kotlin Multiplatform. Read the code, adapt it for your team, and
+        contribute back.
+      </p>
+    </div>
+    <div class="code">
+      <code
+        ><span class="prompt" aria-hidden="true">$ </span>git clone {
+          urlSegments.map((segment) => (
+            <>
+              <span class="segment">{segment}</span>
+              <wbr />
+            </>
+          ))
+        }</code
+      >
+    </div>
+  </div>
+</section>
+
+<style>
+  .open {
+    padding-top: var(--section-space);
+  }
+
+  .panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px 64px;
+    padding: clamp(32px, 5vw, 64px);
+    border-radius: var(--radius-lg);
+    background: var(--color-ink);
+    color: var(--color-panel-ink);
+  }
+
+  .copy {
+    flex: 1 1 380px;
+    min-width: 0;
+  }
+
+  .copy p {
+    max-width: 460px;
+    margin-top: 16px;
+    font-size: 18px;
+    color: var(--color-panel-ink-2);
+  }
+
+  .code {
+    flex: 1 1 420px;
+    min-width: 0;
+    padding: 20px 24px;
+    border: 1px solid var(--color-code-border);
+    border-radius: 10px;
+    background: var(--color-code);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+
+  code {
+    font-family: inherit;
+  }
+
+  .prompt {
+    color: var(--color-code-muted);
+  }
+
+  .segment {
+    white-space: nowrap;
+  }
+</style>

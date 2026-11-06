@@ -1,0 +1,61 @@
+---
+import { links } from '../data/site';
+---
+
+<footer class="footer">
+  <div class="container inner">
+    <div class="top">
+      <p class="brand">Scout-a-lot</p>
+      <nav aria-label="Footer">
+        <a href={links.github}>GitHub</a>
+        <a href={links.docs}>Docs</a>
+        <a href={links.team}>FRC Team 1939</a>
+        <a href={links.blueAlliance}>Powered by The Blue Alliance</a>
+      </nav>
+    </div>
+    <p class="legal">
+      Event data provided by <em>FIRST</em>. © {new Date().getFullYear()} FRC Team 1939. <em>FIRST</em
+      >® and <em>FIRST</em>® Robotics Competition are registered trademarks of <em>FIRST</em>®, which
+      is not overseeing, involved with, or responsible for this activity.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    font-size: 14px;
+    color: var(--color-ink-3);
+  }
+
+  .inner {
+    padding-block: 40px;
+  }
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px 40px;
+  }
+
+  .brand {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 24px;
+  }
+
+  nav a {
+    padding-block: 6px;
+  }
+
+  .legal {
+    max-width: 820px;
+    margin-top: 24px;
+  }
+</style>

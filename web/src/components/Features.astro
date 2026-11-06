@@ -1,0 +1,70 @@
+---
+import { features } from '../data/site';
+---
+
+<section id="features" class="container features" aria-labelledby="features-title">
+  <h2 id="features-title" class="section-title">Everything a scouting team needs on event day.</h2>
+  <div class="grid">
+    {
+      features.map((feature) => (
+        <article>
+          <svg
+            aria-hidden="true"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            set:html={feature.icon}
+          />
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .features {
+    padding-top: var(--section-space);
+  }
+
+  h2 {
+    max-width: 620px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 1px;
+    margin-top: 48px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-border);
+  }
+
+  article {
+    padding: 32px;
+    background: var(--color-bg);
+  }
+
+  svg {
+    color: var(--color-accent);
+  }
+
+  h3 {
+    margin: 16px 0 4px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    color: var(--color-ink-2);
+  }
+</style>
