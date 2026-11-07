@@ -1,5 +1,5 @@
-import autoScreen from '../assets/screens/auto.png';
 import homeScreen from '../assets/screens/home.png';
+import pitsScreen from '../assets/screens/pits.png';
 import syncScreen from '../assets/screens/sync.png';
 
 export const links = {
@@ -13,12 +13,12 @@ export const screenshots = [
   {
     name: 'Match setup',
     image: homeScreen,
-    alt: 'Scout-a-lot home screen with the current event, match number, and assigned team.',
+    alt: 'Scout a Lot home screen with the current event, match number, and assigned team.',
   },
   {
-    name: 'Match scouting',
-    image: autoScreen,
-    alt: 'Autonomous scouting form with starting position, preload, and pickup options.',
+    name: 'Pit scouting',
+    image: pitsScreen,
+    alt: 'Scout Pits screen listing teams with complete, incomplete, and not started statuses.',
   },
   {
     name: 'Data sync',

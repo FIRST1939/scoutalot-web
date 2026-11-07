@@ -1,11 +1,16 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 import { links } from '../data/site';
 ---
 
 <footer class="footer">
   <div class="container inner">
     <div class="top">
-      <p class="brand">Scout-a-lot</p>
+      <p class="brand">
+        <Image src={logo} alt="" height={24} densities={[1, 2]} format="webp" />
+        Scout a Lot
+      </p>
       <nav aria-label="Footer">
         <a href={links.github}>GitHub</a>
         <a href={links.docs}>Docs</a>
@@ -40,6 +45,9 @@ import { links } from '../data/site';
   }
 
   .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-weight: 600;
     color: var(--color-ink);
   }

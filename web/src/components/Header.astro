@@ -1,10 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 import { links } from '../data/site';
 ---
 
 <header class="header">
   <div class="container bar">
-    <a class="brand" href="/">Scout-a-lot</a>
+    <a class="brand" href="/">
+      <Image src={logo} alt="" height={28} densities={[1, 2]} format="webp" loading="eager" />
+      Scout a Lot
+    </a>
     <nav aria-label="Main">
       <a class="nav-link" href="/#features">Features</a>
       <a class="nav-link" href="/#availability">Download</a>
@@ -29,6 +34,9 @@ import { links } from '../data/site';
   }
 
   .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 17px;
     font-weight: 600;
     letter-spacing: -0.02em;
